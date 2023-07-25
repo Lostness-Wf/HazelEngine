@@ -4,6 +4,9 @@
 
 #include <stdio.h>
 
+//spdLog
+#include "Hazel/Log.h"
+
 #include "Hazel/Application.h"
 
 //Entry Point
