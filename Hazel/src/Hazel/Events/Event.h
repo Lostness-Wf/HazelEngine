@@ -1,6 +1,6 @@
 #pragma once
 
-#include "..\Core.h"
+#include "Hazel\Core.h"
 
 #include <string>
 #include <functional>
@@ -55,6 +55,7 @@ namespace Hazel {
 		bool m_Handled = false;
 	};
 
+	//EventDispatcher用于根据传入的事件自动分配类型
 	class EventDispatcher
 	{
 		/*定义了一个模板函数 Dispatch，它接受一个 EventFn<T> 类型的函数对象作为参数。
