@@ -4,6 +4,9 @@
 
 #include <stdio.h>
 
+//layer
+#include "Hazel/Layer.h"
+
 //spdLog
 #include "Hazel/Log.h"
 

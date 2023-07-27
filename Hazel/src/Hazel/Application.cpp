@@ -34,7 +34,26 @@ namespace Hazel {
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
-		HZ_CORE_TRACE("{0}", e);
+		/*从 m_LayerStack 的末尾开始遍历，直到到达 m_LayerStack 的开头。每次迭代中，
+		调用当前图层的 OnEvent 函数，并将事件 e 作为参数传递给它。如果事件 e 被处理（即 e.Handled 为 true），
+		则循环会提前结束，不再继续遍历剩余的图层。目的是将事件 e 传递给图层栈中的每个图层，
+		直到事件被处理或所有图层都被遍历完毕。*/
+		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin(); )
+		{
+			(*--it)->OnEvent(e);
+			if (e.Handled)
+				break;
+		}
+	}
+
+	void Application::PushLayer(Layer* layer)
+	{
+		m_LayerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* layer)
+	{
+		m_LayerStack.PushOverlay(layer);
 	}
 
 	void Application::Run()
@@ -44,6 +63,9 @@ namespace Hazel {
 			//test
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer* layer : m_LayerStack)
+				layer->OnUpdate();
 
 			m_Window->OnUpdate();
 		}
