@@ -24,3 +24,6 @@ HZ_CORE_ERROR 宏输出错误信息，并调用 __debugbreak 函数触发断点。
 #endif // HZ_PLATFORM_WINDOWS
 
 #define BIT(x) (1 << x)
+
+//std::placeholders::_1 是一个占位符，它用于表示 std::bind 函数绑定的函数的第一个参数。
+#define HZ_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
