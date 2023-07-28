@@ -3,7 +3,7 @@
 
 #include "Log.h"
 
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace Hazel {
 
@@ -22,6 +22,10 @@ namespace Hazel {
 		这意味着，SetEventCallback方法的参数将是一个可调用对象，该对象绑定到成员函数Application::OnEvent，
 		并将第一个参数绑定到占位符std::placeholders::_1。当调用生成的函数对象时，第一个参数将替换占位符_1。*/
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+		//test
+		unsigned int id;
+		glGenVertexArrays(1, &id);
 	}
 
 	Hazel::Application::~Application()
