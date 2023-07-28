@@ -11,6 +11,10 @@
 	#error Hazel only support Windows!
 #endif // HZ_PLATFORM_WINDOWS
 
+#ifdef HZ_DEBUG
+	#define HZ_ENABLE_ASSERTS
+#endif //HZ_DEBUG
+
 /*这两个宏用于在调试模式下进行断言检查。如果定义了 HZ_ENABLE_ASSERTS 符号，
 则这两个宏会检查给定的条件 x 是否为真。如果条件为假，则会调用 HZ_ERROR 或
 HZ_CORE_ERROR 宏输出错误信息，并调用 __debugbreak 函数触发断点。
