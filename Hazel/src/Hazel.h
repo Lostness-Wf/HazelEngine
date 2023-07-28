@@ -12,5 +12,8 @@
 
 #include "Hazel/Application.h"
 
+//ImGui UI²ã
+#include "Hazel/ImGui/ImGuiLayer.h"
+
 //Entry Point
 #include "Hazel/EntryPoint.h"

@@ -13,8 +13,13 @@ namespace Hazel {
 	占位符用于指定哪些参数不应绑定，而应在调用生成的函数对象时提供。*/
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
 
+	Application* Application::s_Instance = nullptr;
+
 	Hazel::Application::Application()
 	{
+		HZ_CORE_ASSERT(!s_Instance, "Application already exists!");
+		s_Instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());
 
 		/*调用了m_Window的SetEventCallback方法，并将其参数设置为BIND_EVENT_FN(OnEvent)的结果。
@@ -53,11 +58,13 @@ namespace Hazel {
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 	void Application::Run()
