@@ -5,6 +5,8 @@
 
 #include <glad/glad.h>
 
+#include "Input.h"
+
 namespace Hazel {
 
 	/*使用std::bind将成员函数Application::x绑定到this指针，并将第一个参数绑定到占位符std::placeholders::_1。
@@ -71,9 +73,13 @@ namespace Hazel {
 	{
 		while (m_Running)
 		{
-			//test
+			//glfw test
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			//input polling test
+			auto [x, y] = Input::GetMousePosition();
+			HZ_CORE_TRACE("{0}, {1}", x, y);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
