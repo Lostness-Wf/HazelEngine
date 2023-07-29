@@ -2,7 +2,7 @@
 
 //这个文件存放所有需要在sandbox中包含的头文件
 
-#include <stdio.h>
+#include "Hazel/Application.h"
 
 //layer
 #include "Hazel/Layer.h"
@@ -10,7 +10,11 @@
 //spdLog
 #include "Hazel/Log.h"
 
-#include "Hazel/Application.h"
+
+//Input
+#include "Hazel/Input.h"
+#include "Hazel/KeyCodes.h"
+#include "Hazel/MouseButtonCodes.h"
 
 //ImGui UI层
 #include "Hazel/ImGui/ImGuiLayer.h"

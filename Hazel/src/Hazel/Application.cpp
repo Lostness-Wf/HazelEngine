@@ -78,8 +78,8 @@ namespace Hazel {
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			//input polling test
-			auto [x, y] = Input::GetMousePosition();
-			HZ_CORE_TRACE("{0}, {1}", x, y);
+			//auto [x, y] = Input::GetMousePosition();
+			//HZ_CORE_TRACE("{0}, {1}", x, y);
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
