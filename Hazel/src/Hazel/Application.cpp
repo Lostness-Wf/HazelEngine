@@ -30,9 +30,8 @@ namespace Hazel {
 		并将第一个参数绑定到占位符std::placeholders::_1。当调用生成的函数对象时，第一个参数将替换占位符_1。*/
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
-		//test111
-		unsigned int id;
-		glGenVertexArrays(1, &id);
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	Hazel::Application::~Application()
@@ -83,6 +82,11 @@ namespace Hazel {
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
+
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}

@@ -5,7 +5,7 @@ namespace Hazel {
 
 	LayerStack::LayerStack()
 	{
-		m_LayerInsert = m_Layers.begin();
+		
 	}
 
 	LayerStack::~LayerStack()
@@ -20,7 +20,8 @@ namespace Hazel {
 		/*调用push或insert成员函数时，我们将元素类型的对象传递给它们，这些对象被拷贝到容器中。
 		调用一个emplace成员函数时，则是将参数传递给元素类型的构造函数。
 		emplace成员使用这些参数在容器管理的内存空间中直接构造元素，这样就省去了拷贝的过程。*/
-		m_LayerInsert = m_Layers.emplace(m_LayerInsert, layer);
+		m_Layers.emplace(m_Layers.begin() + m_LayerInsertIndex, layer);
+		m_LayerInsertIndex++;
 	}
 
 	//push的层位于栈顶，也就是最后渲染的层
@@ -36,7 +37,7 @@ namespace Hazel {
 		if (it != m_Layers.end())
 		{
 			m_Layers.erase(it);
-			m_LayerInsert--;
+			m_LayerInsertIndex--;
 		}
 	}
 

@@ -1,5 +1,7 @@
 #include <Hazel.h>
 
+#include "imgui\imgui.h"
+
 //test layer
 class ExampleLayer : public Hazel::Layer
 {
@@ -33,7 +35,6 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Hazel::ImGuiLayer());
 	}
 	~Sandbox()
 	{
@@ -45,3 +46,4 @@ Hazel::Application* Hazel::CreatApplication()
 {
 	return new Sandbox();
 }
+
