@@ -17,6 +17,14 @@ public:
 			HZ_TRACE("Tab key is pressed (poll)!");
 	}
 
+	virtual void OnImGuiRender() override
+	{
+		//test
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
+	}
+
 	void OnEvent(Hazel::Event& event) override
 	{
 		if (event.GetEventType() == Hazel::EventType::KeyPressed)
