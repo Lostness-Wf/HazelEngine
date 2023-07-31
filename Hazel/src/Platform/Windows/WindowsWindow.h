@@ -3,6 +3,7 @@
 //Windows窗口类
 
 #include "Hazel/Window.h"
+#include "Hazel/Renderer/GraphicsContext.h"
 
 #include <GLFW/glfw3.h>
 
@@ -35,6 +36,7 @@ namespace Hazel {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+		GraphicsContext* m_Context;
 
 		/*WindowData 的结构体，用于存储窗口的相关数据，
 		标题、宽度、高度、垂直同步状态和事件回调函数。*/
