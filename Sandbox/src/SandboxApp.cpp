@@ -8,7 +8,7 @@ class ExampleLayer : public Hazel::Layer
 public:
 	ExampleLayer()
 		: Layer("Example")
-	{
+	{ 
 	}
 
 	void OnUpdate() override
@@ -28,6 +28,7 @@ public:
 	{
 		if (event.GetEventType() == Hazel::EventType::KeyPressed)
 		{
+			//test get keycode
 			Hazel::KeyPressedEvent& e = (Hazel::KeyPressedEvent&)event;
 			HZ_TRACE("{0}", (char)e.GetKeyCode());
 		}
