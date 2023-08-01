@@ -18,7 +18,7 @@ public:
 
 	virtual void OnImGuiRender() override
 	{
-		//test
+		//test window
 		ImGui::Begin("Test");
 		ImGui::Text("Hello World");
 		ImGui::End();
