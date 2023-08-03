@@ -8,6 +8,7 @@
 
 #include "Hazel/Renderer/Shader.h"
 #include "Hazel/Renderer/Buffer.h"
+#include "Hazel/Renderer/VertexArray.h"
 
 #include "Window.h"
 #include "LayerStack.h"
@@ -39,15 +40,17 @@ namespace Hazel {
 		LayerStack m_LayerStack;
 
 		//test triangle
-		unsigned int m_VertexArray;
-		std::unique_ptr<Shader> m_Shader;
-		std::unique_ptr<VertexBuffer> m_VertexBuffer;
-		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+		std::shared_ptr<Shader> m_Shader;
+		std::shared_ptr<VertexArray> m_VertexArray;
+
+		//test square
+		std::shared_ptr<Shader> m_BlueShader;
+		std::shared_ptr<VertexArray> m_SquareVA;
 	private:
 		static Application* s_Instance;
 	};
 
 	//TODO:difine in sandbox
-	Application* CreatApplication();
+	Application* CreateApplication();
 }
 

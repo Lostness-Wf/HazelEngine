@@ -2,7 +2,7 @@
 
 #if HZ_PLATFORM_WINDOWS
 
-extern Hazel::Application* Hazel::CreatApplication();
+extern Hazel::Application* Hazel::CreateApplication();
 
 int main(int argc, char** argv) {
 	//Log
@@ -10,7 +10,7 @@ int main(int argc, char** argv) {
 	HZ_CORE_INFO("Init Log");
 	HZ_INFO("Init Log");
 
-	auto app = Hazel::CreatApplication();
+	auto app = Hazel::CreateApplication();
 	app->Run();
 	delete app;
 }

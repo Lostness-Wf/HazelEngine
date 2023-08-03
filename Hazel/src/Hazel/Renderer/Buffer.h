@@ -69,6 +69,10 @@ namespace Hazel {
 	public:
 		BufferLayout() {}
 
+		/*std::initializer_list 是一个轻量级的代理对象，它提供对类型为 const T 的对象数组的访问。
+		当使用花括号初始化列表来初始化一个对象时，会自动构造一个 std::initializer_list 对象。
+		代理对象是一种设计模式，它提供了对目标对象的另外一种访问方式。通过代理对象访问目标对象，
+		可以在目标对象实现的基础上增强额外的功能操作，即扩展目标对象的功能。*/
 		BufferLayout(const std::initializer_list<BufferElement>& elements)
 			: m_Elements(elements)
 		{
