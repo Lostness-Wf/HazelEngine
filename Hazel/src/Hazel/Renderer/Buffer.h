@@ -110,7 +110,7 @@ namespace Hazel {
 		/*把析构函数标记成virtual的目的是为了在用基类指针删除派生类对象时，能够正确调用派生类的析构函数，释放资源。
 		如果基类的析构函数不是虚函数，那么只会调用基类的析构函数，可能造成内存泄漏。当然，如果你的类没有其他虚函数，
 		也没有指针成员，那么你可以不用把析构函数声明为virtual。*/
-		virtual ~VertexBuffer() {}
+		virtual ~VertexBuffer() = default;
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
@@ -125,7 +125,7 @@ namespace Hazel {
 	class IndexBuffer
 	{
 	public:
-		virtual ~IndexBuffer() {}
+		virtual ~IndexBuffer() = default;
 
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;

@@ -139,11 +139,6 @@ namespace Hazel {
 		m_BlueShader.reset(new Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
 	}
 
-	Hazel::Application::~Application()
-	{
-
-	}
-
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);

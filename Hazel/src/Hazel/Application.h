@@ -19,7 +19,10 @@ namespace Hazel {
 	{
 	public:
 		Application();
-		virtual ~Application();
+		/*在 C++11 中，当一个函数后面加上 = default 时，表示这个函数是一个默认函数。编译器将为显式声明的默认函数自动生成函数体。
+		编译器自动生成的默认函数通常比手动定义的函数具有更高的执行效率。
+		此外，使用 =default 可以清楚地表明您希望使用编译器生成的默认行为，这有助于提高代码的可读性。*/
+		virtual ~Application() = default;
 
 		void Run();
 
