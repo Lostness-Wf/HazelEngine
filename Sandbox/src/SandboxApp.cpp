@@ -179,7 +179,7 @@ public:
 	virtual void OnImGuiRender() override
 	{
 		//test color settings
-		ImGui::Begin("Settings");
+		ImGui::Begin("Color Settings");
 		ImGui::ColorEdit3("Square Color", glm::value_ptr(m_SquareColor));
 		ImGui::End();
 	}
