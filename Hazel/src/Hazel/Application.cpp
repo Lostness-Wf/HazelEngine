@@ -31,7 +31,7 @@ namespace Hazel {
 		这意味着，SetEventCallback方法的参数将是一个可调用对象，该对象绑定到成员函数Application::OnEvent，
 		并将第一个参数绑定到占位符std::placeholders::_1。当调用生成的函数对象时，第一个参数将替换占位符_1。*/
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
-		
+
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 	}
@@ -67,6 +67,7 @@ namespace Hazel {
 	{
 		while (m_Running)
 		{
+			//获取帧时间
 			float time = (float)glfwGetTime();
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
