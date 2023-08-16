@@ -17,6 +17,11 @@ namespace Hazel {
 		m_Width = width;
 		m_Height = height;
 
+		/*在 OpenGL 中，内部格式（internal format）和数据格式（data format）是两个不同的概念。
+		内部格式指定了纹理在 GPU 内存中的存储方式，而数据格式指定了上传到 GPU 的图像数据的格式。
+		例如，如果图像数据中每个像素包含红、绿、蓝三个颜色通道，则数据格式可以指定为 GL_RGB。
+		而内部格式可以指定为 GL_RGB8，表示在 GPU 内存中，每个颜色通道占用 8 位。内部格式和数据格式之间的匹配很重要，
+		以确保图像数据能够正确地上传到 GPU 并显示出来。*/
 		GLenum internalFormat = 0, dataFormat = 0;
 		if (channels == 4)
 		{
