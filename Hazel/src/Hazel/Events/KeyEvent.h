@@ -12,7 +12,6 @@ namespace Hazel {
 
 		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 	protected:
-		//构造函数放在Private，无法直接创建KeyEvent基类
 		KeyEvent(int keycode)
 			: m_KeyCode(keycode) {}
 

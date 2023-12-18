@@ -66,6 +66,7 @@ namespace Hazel {
 		EventDispatcher(Event& event)
 			: m_Event(event)
 		{
+
 		}
 
 		template<typename T>
