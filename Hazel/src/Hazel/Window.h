@@ -9,8 +9,6 @@
 
 namespace Hazel {
 
-	/*WindowProps 结构体包含三个成员变量：Title，Width 和 Height，
-	分别表示窗口的标题、宽度和高度。它还包含一个构造函数，用于初始化这些成员变量。*/
 	struct WindowProps
 	{
 		std::string Title;
