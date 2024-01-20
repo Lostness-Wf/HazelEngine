@@ -69,7 +69,7 @@ namespace Hazel {
 	{
 		while (m_Running)
 		{
-			//获取帧时间
+			//Get deltatime between two frame
 			float time = (float)glfwGetTime();
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
