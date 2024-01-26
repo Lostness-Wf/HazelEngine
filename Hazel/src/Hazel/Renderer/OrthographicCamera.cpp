@@ -14,6 +14,12 @@ namespace Hazel {
 		m_ViewProjectionMatrix = m_ProjectionMatrix * m_ViewMatrix;
 	}
 
+	void OrthographicCamera::SetProjection(float left, float right, float bottom, float top)
+	{
+		m_ProjectionMatrix = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
+		m_ViewProjectionMatrix = m_ProjectionMatrix * m_ViewMatrix;
+	}
+
 	void OrthographicCamera::RecalculateViewMatrix()
 	{
 		/*投影矩阵是用来将三维空间中的点映射到二维屏幕上的矩阵。它的作用是将空间中的每个顶点坐标从观察空间（eye space 或 view space）
