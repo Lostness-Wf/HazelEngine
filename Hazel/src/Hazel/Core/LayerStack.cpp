@@ -11,7 +11,10 @@ namespace Hazel {
 	LayerStack::~LayerStack()
 	{
 		for (Layer* layer : m_Layers)
+		{
+			layer->OnDetach();
 			delete layer;
+		}
 	}
 
 	//push的层位于栈顶overlay层的下面，普通layer的最上面
