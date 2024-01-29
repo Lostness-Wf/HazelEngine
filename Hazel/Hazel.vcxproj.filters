@@ -1492,5 +1492,6 @@
       <Filter>src\Hazel\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Hazel\Renderer\Renderer2D.cpp" />
+    <ClCompile Include="src\Hazel\Renderer\GraphicsContext.cpp" />
   </ItemGroup>
 </Project>

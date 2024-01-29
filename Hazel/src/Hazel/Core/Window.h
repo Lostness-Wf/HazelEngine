@@ -23,10 +23,7 @@ namespace Hazel {
 		}
 	};
 
-	/*Window 类是一个接口，表示基于桌面系统的窗口。它包含一些纯虚函数，
-	如 OnUpdate、GetWidth、GetHeight、SetEventCallback、SetVSync 和 IsVSync，
-	这些函数需要在派生类中实现。此外，它还包含一个静态函数 Create，用于创建 Window 对象*/
-	class HAZEL_API Window
+	class Window
 	{
 	public:
 		using EventCallbackFn = std::function<void(Event&)>;
@@ -45,7 +42,7 @@ namespace Hazel {
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Window* Create(const WindowProps& props = WindowProps());
+		static  Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
 
 }

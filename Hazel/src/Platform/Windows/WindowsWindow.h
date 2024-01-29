@@ -1,7 +1,5 @@
 #pragma once
 
-//Windows窗口类
-
 #include "Hazel/Core/Window.h"
 #include "Hazel/Renderer/GraphicsContext.h"
 
@@ -9,11 +7,6 @@
 
 namespace Hazel {
 
-	/*WindowsWindow 的类，它继承自 Window 类。WindowsWindow 类实现了 Window 类中定义的纯虚函数，
-	OnUpdate、GetWidth、GetHeight、SetEventCallback、SetVSync 和 IsVSync。
-	此外，它还包含两个私有虚函数：Init 和 Shutdown，用于初始化和关闭窗，
-	它还包含一个名为 WindowData 的结构体，用于存储窗口的相关数据，
-	如标题、宽度、高度、垂直同步状态和事件回调函数。*/
 	class WindowsWindow : public Window
 	{
 	public:
@@ -36,10 +29,8 @@ namespace Hazel {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
-		GraphicsContext* m_Context;
+		Scope<GraphicsContext> m_Context;
 
-		/*WindowData 的结构体，用于存储窗口的相关数据，
-		标题、宽度、高度、垂直同步状态和事件回调函数。*/
 		struct WindowData
 		{
 			std::string Title;
