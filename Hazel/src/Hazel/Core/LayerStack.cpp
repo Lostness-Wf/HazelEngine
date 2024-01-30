@@ -20,14 +20,12 @@ namespace Hazel {
 		emplace成员使用这些参数在容器管理的内存空间中直接构造元素，这样就省去了拷贝的过程。*/
 		m_Layers.emplace(m_Layers.begin() + m_LayerInsertIndex, layer);
 		m_LayerInsertIndex++;
-		layer->OnAttach();
 	}
 
 	//push的层位于栈顶，也就是最后渲染的层
 	void LayerStack::PushOverlay(Layer* overlay)
 	{
 		m_Layers.emplace_back(overlay);
-		overlay->OnAttach();
 	}
 
 	//弹出的层不会销毁

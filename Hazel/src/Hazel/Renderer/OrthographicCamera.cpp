@@ -11,17 +11,23 @@ namespace Hazel {
 	OrthographicCamera::OrthographicCamera(float left, float right, float bottom, float top)
 		: m_ProjectionMatrix(glm::ortho(left, right, bottom, top, -1.0f, 1.0f)), m_ViewMatrix(1.0f)
 	{
+		HZ_PROFILE_FUNCTION();
+
 		m_ViewProjectionMatrix = m_ProjectionMatrix * m_ViewMatrix;
 	}
 
 	void OrthographicCamera::SetProjection(float left, float right, float bottom, float top)
 	{
+		HZ_PROFILE_FUNCTION();
+
 		m_ProjectionMatrix = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
 		m_ViewProjectionMatrix = m_ProjectionMatrix * m_ViewMatrix;
 	}
 
 	void OrthographicCamera::RecalculateViewMatrix()
 	{
+		HZ_PROFILE_FUNCTION();
+
 		/*投影矩阵是用来将三维空间中的点映射到二维屏幕上的矩阵。它的作用是将空间中的每个顶点坐标从观察空间（eye space 或 view space）
 		变换到裁剪坐标（clip coordinate，属于裁剪空间，clip space）1。投影矩阵有两种主要类型：正交投影和透视投影。
 		正交投影矩阵的视锥体是一个四棱锥的一部分，其中近平面为 z = n，远平面为 z = f。
