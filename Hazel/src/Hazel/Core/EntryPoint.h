@@ -2,7 +2,7 @@
 
 #include "Hazel/Core/Core.h"
 
-#if HZ_PLATFORM_WINDOWS
+#ifdef HZ_PLATFORM_WINDOWS
 
 extern Hazel::Application* Hazel::CreateApplication();
 

@@ -1,5 +1,5 @@
 workspace "Hazel"
-	architecture "x86_64" 
+	architecture "x86_64"
 	startproject "Sandbox"
 
 	configurations
@@ -7,6 +7,11 @@ workspace "Hazel"
 		"Debug",
 		"Release",
 		"Dist"
+	}
+	
+	flags
+	{
+		"MultiProcessorCompile"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
@@ -46,12 +51,13 @@ project "Hazel"
 		"%{prj.name}/vender/stb_image/**.h",
 		"%{prj.name}/vender/stb_image/**.cpp",
 		"%{prj.name}/vender/glm/glm/**.hpp",
-		"%{prj.name}/vender/glm/glm/**.inl"
+		"%{prj.name}/vender/glm/glm/**.inl",
 	}
 
 	defines
 	{
-		"_CRT_SECURE_NO_WARNINGS"
+		"_CRT_SECURE_NO_WARNINGS",
+		"GLFW_INCLUDE_NONE"
 	}
 
 	includedirs
@@ -78,9 +84,6 @@ project "Hazel"
 
 		defines
 		{
-			"HZ_PLATFORM_WINDOWS",
-			"HZ_BUILD_DLL",
-			"GLFW_INCLUDE_NONE"
 		}
 
 	filter "configurations:Debug"
@@ -97,11 +100,6 @@ project "Hazel"
 		defines "HZ_DIST"
 		runtime "Release"
 		optimize "on"
-
-
-
-
-
 
 project "Sandbox"
 	location "Sandbox"
@@ -134,12 +132,7 @@ project "Sandbox"
 
 	filter "system:windows"
 		systemversion "latest"
-
-		defines
-		{
-			"HZ_PLATFORM_WINDOWS"
-		}
-
+		
 	filter "configurations:Debug"
 		defines "HZ_DEBUG"
 		runtime "Debug"
