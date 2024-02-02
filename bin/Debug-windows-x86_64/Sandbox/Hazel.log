@@ -1,0 +1,6 @@
+[17:06:19] [info] HAZEL: Creating window Hazel Engine (1280, 720)
+[17:06:19] [info] HAZEL: OpenGL Info:
+[17:06:19] [info] HAZEL:   Vendor: NVIDIA Corporation
+[17:06:19] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+[17:06:19] [info] HAZEL:   Version: 4.6.0 NVIDIA 536.67
+[17:06:19] [error] HAZEL: Could not open file 'assets/shaders/Texture.glsl'
