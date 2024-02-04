@@ -1,2 +1,1 @@
-# Hazel
-TheCherno/Hazel Engine
+# Hazel GameEngine
