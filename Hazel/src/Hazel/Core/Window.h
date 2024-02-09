@@ -1,8 +1,6 @@
 #pragma once
 
-//窗口基类，具体需要对每个平台实现
-
-#include "hzpch.h"
+#include <sstream>
 
 #include "Hazel/Core/Base.h"
 #include "Hazel/Events/Event.h"
@@ -23,6 +21,7 @@ namespace Hazel {
 		}
 	};
 
+	// Interface representing a desktop system based Window
 	class Window
 	{
 	public:
@@ -42,7 +41,7 @@ namespace Hazel {
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static  Scope<Window> Create(const WindowProps& props = WindowProps());
+		static Scope<Window> Create(const WindowProps& props = WindowProps());
 	};
 
 }

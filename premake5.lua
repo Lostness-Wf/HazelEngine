@@ -1,3 +1,5 @@
+include "./vender/premake/premake_customization/solution_items.lua"
+
 workspace "Hazel"
 	architecture "x86_64"
 	startproject "Hazel-Editor"
@@ -8,7 +10,12 @@ workspace "Hazel"
 		"Release",
 		"Dist"
 	}
-	
+
+	solution_items
+	{
+		".editorconfig"
+	}
+
 	flags
 	{
 		"MultiProcessorCompile"
@@ -18,183 +25,20 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
-IncludeDir["GLFW"] = "Hazel/vender/GLFW/include"
-IncludeDir["Glad"] = "Hazel/vender/Glad/include"
-IncludeDir["ImGui"] = "Hazel/vender/imgui"
-IncludeDir["glm"] = "Hazel/vender/glm"
-IncludeDir["stb_image"] = "Hazel/vender/stb_image"
-IncludeDir["entt"] = "Hazel/vender/entt/include"
+IncludeDir["GLFW"] = "%{wks.location}/Hazel/vender/GLFW/include"
+IncludeDir["Glad"] = "%{wks.location}/Hazel/vender/Glad/include"
+IncludeDir["ImGui"] = "%{wks.location}/Hazel/vender/imgui"
+IncludeDir["glm"] = "%{wks.location}/Hazel/vender/glm"
+IncludeDir["stb_image"] = "%{wks.location}/Hazel/vender/stb_image"
+IncludeDir["entt"] = "%{wks.location}/Hazel/vender/entt/include"
 
 group "Dependencies"
+	include "vender/premake"
 	include "Hazel/vender/GLFW"
 	include "Hazel/vender/Glad"
 	include "Hazel/vender/imgui"
-
 group ""
 
-project "Hazel"
-	location "Hazel"
-	kind "StaticLib"
-	language "C++"
-	cppdialect "C++17"
-	staticruntime "on"
-
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-	pchheader "hzpch.h"
-	pchsource "Hazel/src/hzpch.cpp"
-
-	files
-	{
-		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp",
-		"%{prj.name}/vender/stb_image/**.h",
-		"%{prj.name}/vender/stb_image/**.cpp",
-		"%{prj.name}/vender/glm/glm/**.hpp",
-		"%{prj.name}/vender/glm/glm/**.inl",
-	}
-
-	defines
-	{
-		"_CRT_SECURE_NO_WARNINGS",
-		"GLFW_INCLUDE_NONE"
-	}
-
-	includedirs
-	{
-		"%{prj.name}/src",
-		"%{prj.name}/vender/spdlog/include",
-		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}",
-		"%{IncludeDir.stb_image}",
-		"%{IncludeDir.entt}"
-	}
-
-	links 
-	{ 
-		"GLFW",
-		"Glad",
-		"ImGui",
-		"opengl32.lib"
-	}
-
-	filter "system:windows"
-		systemversion "latest"
-
-		defines
-		{
-		}
-
-	filter "configurations:Debug"
-		defines "HZ_DEBUG"
-		runtime "Debug"
-		symbols "on"
-
-	filter "configurations:Release"
-		defines "HZ_RELEASE"
-		runtime "Release"
-		optimize "on"
-
-	filter "configurations:Dist"
-		defines "HZ_DIST"
-		runtime "Release"
-		optimize "on"
-
-project "Sandbox"
-	location "Sandbox"
-	kind "ConsoleApp"
-	language "C++"
-	cppdialect "C++17"
-	staticruntime "on"
-
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-	files
-	{
-		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
-	}
-
-	includedirs
-	{
-		"Hazel/vender/spdlog/include",
-		"Hazel/src",
-		"Hazel/vender",
-		"%{IncludeDir.glm}",
-		"%{IncludeDir.entt}"
-	}
-
-	links
-	{
-		"Hazel"
-	}
-
-	filter "system:windows"
-		systemversion "latest"
-		
-	filter "configurations:Debug"
-		defines "HZ_DEBUG"
-		runtime "Debug"
-		symbols "on"
-
-	filter "configurations:Release"
-		defines "HZ_RELEASE"
-		runtime "Release"
-		optimize "on"
-
-	filter "configurations:Dist"
-		defines "HZ_DIST"
-		runtime "Release"
-		optimize "on"
-
-project "Hazel-Editor"
-	location "Hazel-Editor"
-	kind "ConsoleApp"
-	language "C++"
-	cppdialect "C++17"
-	staticruntime "on"
-
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
-
-	files
-	{
-		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
-	}
-
-	includedirs
-	{
-		"Hazel/vender/spdlog/include",
-		"Hazel/src",
-		"Hazel/vender",
-		"%{IncludeDir.glm}",
-		"%{IncludeDir.entt}"
-	}
-
-	links
-	{
-		"Hazel"
-	}
-
-	filter "system:windows"
-		systemversion "latest"
-
-	filter "configurations:Debug"
-		defines "HZ_DEBUG"
-		runtime "Debug"
-		symbols "on"
-
-	filter "configurations:Release"
-		defines "HZ_RELEASE"
-		runtime "Release"
-		optimize "on"
-
-	filter "configurations:Dist"
-		defines "HZ_DIST"
-		runtime "Release"
-		optimize "on"
+include "Hazel"
+include "Sandbox"
+include "Hazel-Editor"
