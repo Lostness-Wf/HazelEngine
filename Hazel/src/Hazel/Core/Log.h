@@ -2,8 +2,12 @@
 
 #include "Hazel/Core/Base.h"
 
+//警告级别设置为0，以下头文件不会发出警告
+#pragma warning(push, 0)
 #include <spdlog/spdlog.h>
 #include <spdlog/fmt/ostr.h>
+//恢复警告级别
+#pragma warning(pop)
 
 namespace Hazel
 {
