@@ -1,5 +1,4 @@
 #pragma once
-
 #include <functional>
 
 #include "Hazel/Debug/Instrumentor.h"
@@ -7,7 +6,10 @@
 
 namespace Hazel {
 
-	//事件系统现在会阻挡进程，发生事件时会停止app进程，处理事件
+	// Events in Hazel are currently blocking, meaning when an event occurs it
+	// immediately gets dispatched and must be dealt with right then an there.
+	// For the future, a better strategy might be to buffer events in an event
+	// bus and process them during the "event" part of the update stage.
 
 	//各种事件
 	enum class EventType
@@ -23,15 +25,15 @@ namespace Hazel {
 	enum EventCategory
 	{
 		None = 0,
-		EventCategoryApplication =	BIT(0),
-		EventCategoryInput =		BIT(1),
-		EventCategoryKeyboard =		BIT(2),
-		EventCategoryMouse =		BIT(3),
-		EventCategoryMouseButton =	BIT(4)
+		EventCategoryApplication = BIT(0),
+		EventCategoryInput = BIT(1),
+		EventCategoryKeyboard = BIT(2),
+		EventCategoryMouse = BIT(3),
+		EventCategoryMouseButton = BIT(4)
 	};
 
-	//##将前后连接为一个记号，否则之间会有一个空格
-#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
+//##将前后连接为一个记号，否则之间会有一个空格
+#define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::type; }\
 								virtual EventType GetEventType() const override { return GetStaticType(); }\
 								virtual const char* GetName() const override { return #type; }
 
@@ -39,8 +41,8 @@ namespace Hazel {
 
 	class Event
 	{
-		friend class EventDispatcher;
 	public:
+		virtual ~Event() = default;
 
 		bool Handled = false;
 
@@ -49,7 +51,7 @@ namespace Hazel {
 		virtual int GetCategoryFlags() const = 0;
 		virtual std::string ToString() const { return GetName(); }
 
-		inline bool IsInCategory(EventCategory category)
+		bool IsInCategory(EventCategory category)
 		{
 			return GetCategoryFlags() & category;
 		}
@@ -58,24 +60,23 @@ namespace Hazel {
 	//EventDispatcher用于根据传入的事件自动分配类型
 	class EventDispatcher
 	{
-		/*定义了一个模板函数 Dispatch，它接受一个 EventFn<T> 类型的函数对象作为参数。
-		Dispatch 函数首先检查事件类型是否与模板参数 T 匹配，如果匹配，则调用传入的函数对象 func 来处理事件，
-		并将事件的 m_Handled 成员设置为 func 的返回值。最后，如果事件类型匹配，Dispatch 函数返回 true，否则返回 false*/
-		template<typename T>
-		using EventFn = std::function<bool(T&)>;
 	public:
 		EventDispatcher(Event& event)
 			: m_Event(event)
 		{
-
 		}
 
-		template<typename T>
-		bool Dispatch(EventFn<T> func)
+		//这段代码是一个模板函数，用于在事件分发机制中调度特定类型的事件处理函数。
+		//它接受两个模板参数 T 和 F，T 是表示事件类型的类，F 是事件处理函数的类型。
+		//函数的功能是检查当前事件的类型是否与给定的类型 T 匹配。如果匹配成功，
+		//它将事件转换为 T 类型，并调用给定的事件处理函数 func。处理函数返回一个布尔值，
+		//表示事件是否已处理。然后，函数返回一个布尔值，指示是否成功调度事件处理。
+		template<typename T, typename F>
+		bool Dispatch(const F& func)
 		{
 			if (m_Event.GetEventType() == T::GetStaticType())
 			{
-				m_Event.Handled = func(*(T*)&m_Event);
+				m_Event.Handled |= func(static_cast<T&>(m_Event));
 				return true;
 			}
 			return false;
@@ -88,5 +89,5 @@ namespace Hazel {
 	{
 		return os << e.ToString();
 	}
+
 }
- 
