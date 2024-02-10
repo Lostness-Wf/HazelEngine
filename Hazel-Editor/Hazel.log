@@ -1,5 +1,5 @@
-[00:50:12] [info] HAZEL: Creating window Hazel Editor (1280, 720)
-[00:50:12] [info] HAZEL: OpenGL Info:
-[00:50:12] [info] HAZEL:   Vendor: 0x7ffd781fa080
-[00:50:12] [info] HAZEL:   Renderer: 0x1db47047afc
-[00:50:12] [info] HAZEL:   Version: 0x1db46ff00a8
+[00:54:01] [info] HAZEL: Creating window Hazel Editor (1280, 720)
+[00:54:02] [info] HAZEL: OpenGL Info:
+[00:54:02] [info] HAZEL:   Vendor: NVIDIA Corporation
+[00:54:02] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+[00:54:02] [info] HAZEL:   Version: 4.6.0 NVIDIA 536.67
