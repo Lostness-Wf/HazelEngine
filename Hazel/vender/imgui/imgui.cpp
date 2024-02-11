@@ -11700,19 +11700,43 @@ bool ImGui::BeginPopupContextWindow(const char* str_id, ImGuiPopupFlags popup_fl
     return BeginPopupEx(id, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoSavedSettings);
 }
 
+
+//bool ImGui::BeginPopupContextWindow(const char* str_id, ImGuiMouseButton mouse_button, bool also_over_items)
+//{
+//    if (!str_id)
+//        str_id = "window_context";
+//    ImGuiID id = GImGui->CurrentWindow->GetID(str_id);
+//    if (IsMouseReleased(mouse_button) && IsWindowHovered(ImGuiHoveredFlags_AllowWhenBlockedByPopup))
+//        if (also_over_items || !IsAnyItemHovered())
+//            OpenPopupEx(id);
+//    return BeginPopupEx(id, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoSavedSettings);
+//}
+
 bool ImGui::BeginPopupContextVoid(const char* str_id, ImGuiPopupFlags popup_flags)
 {
-    ImGuiContext& g = *GImGui;
-    ImGuiWindow* window = g.CurrentWindow;
     if (!str_id)
-        str_id = "void_context";
-    ImGuiID id = window->GetID(str_id);
+        str_id = "window_context";
+    ImGuiID id = GImGui->CurrentWindow->GetID(str_id);
     int mouse_button = (popup_flags & ImGuiPopupFlags_MouseButtonMask_);
-    if (IsMouseReleased(mouse_button) && !IsWindowHovered(ImGuiHoveredFlags_AnyWindow))
-        if (GetTopMostPopupModal() == NULL)
-            OpenPopupEx(id, popup_flags);
+    if (IsMouseReleased(mouse_button) && IsWindowHovered(ImGuiHoveredFlags_AllowWhenBlockedByPopup))
+        if (false || !IsAnyItemHovered())
+        OpenPopupEx(id);
     return BeginPopupEx(id, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoSavedSettings);
 }
+
+//bool ImGui::BeginPopupContextVoid(const char* str_id, ImGuiPopupFlags popup_flags)
+//{
+//    ImGuiContext& g = *GImGui;
+//    ImGuiWindow* window = g.CurrentWindow;
+//    if (!str_id)
+//        str_id = "void_context";
+//    ImGuiID id = window->GetID(str_id);
+//    int mouse_button = (popup_flags & ImGuiPopupFlags_MouseButtonMask_);
+//    if (IsMouseReleased(mouse_button) && !IsWindowHovered(ImGuiHoveredFlags_AnyWindow))
+//        if (GetTopMostPopupModal() == NULL)
+//            OpenPopupEx(id, popup_flags);
+//    return BeginPopupEx(id, ImGuiWindowFlags_AlwaysAutoResize | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoSavedSettings);
+//}
 
 // r_avoid = the rectangle to avoid (e.g. for tooltip it is a rectangle around the mouse cursor which we want to avoid. for popups it's a small point around the cursor.)
 // r_outer = the visible area rectangle, minus safe area padding. If our popup size won't fit because of safe area padding we ignore it.
