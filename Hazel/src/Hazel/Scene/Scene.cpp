@@ -100,6 +100,7 @@ namespace Hazel {
 		}
 	}
 
+	//Ä£°åÌØ»¯
 	template<typename T>
 	void Scene::OnComponentAdded(Entity entity, T& component)
 	{
