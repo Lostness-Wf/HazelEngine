@@ -1,9 +1,10 @@
-[22:15:13] [info] HAZEL: Creating window Hazel Editor (1600, 900)
-[22:15:13] [info] HAZEL: OpenGL Info:
-[22:15:13] [info] HAZEL:   Vendor: NVIDIA Corporation
-[22:15:13] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
-[22:15:13] [info] HAZEL:   Version: 4.6.0 NVIDIA 536.67
-[22:15:17] [trace] HAZEL: Deserializing scene 'Untitled'
-[22:15:17] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Camera
-[22:15:17] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = PinkSquare
-[22:15:20] [warning] HAZEL: This entity already has the Sprite Renderer Component!
+[01:51:07] [info] HAZEL: Creating window Hazel Editor (1600, 900)
+[01:51:07] [info] HAZEL: OpenGL Info:
+[01:51:07] [info] HAZEL:   Vendor: NVIDIA Corporation
+[01:51:07] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+[01:51:07] [info] HAZEL:   Version: 4.6.0 NVIDIA 536.67
+[01:51:17] [trace] HAZEL: Deserializing scene 'Untitled'
+[01:51:17] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Top
+[01:51:17] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Camera
+[01:51:17] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Right
+[01:51:17] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Left

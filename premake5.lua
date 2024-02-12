@@ -32,6 +32,7 @@ IncludeDir["glm"] = "%{wks.location}/Hazel/vender/glm"
 IncludeDir["stb_image"] = "%{wks.location}/Hazel/vender/stb_image"
 IncludeDir["entt"] = "%{wks.location}/Hazel/vender/entt/include"
 IncludeDir["yaml_cpp"] = "%{wks.location}/Hazel/vender/yaml-cpp/include"
+IncludeDir["ImGuizmo"] = "%{wks.location}/Hazel/vender/ImGuizmo"
 
 group "Dependencies"
 	include "vender/premake"

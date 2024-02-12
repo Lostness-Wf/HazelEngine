@@ -18,6 +18,9 @@ project "Hazel"
 		"vender/stb_image/**.cpp",
 		"vender/glm/glm/**.hpp",
 		"vender/glm/glm/**.inl",
+
+		"vender/ImGuizmo/ImGuizmo.h",
+		"vender/ImGuizmo/ImGuizmo.cpp"
 	}
 
 	defines
@@ -36,7 +39,8 @@ project "Hazel"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.entt}",
-		"%{IncludeDir.yaml_cpp}"
+		"%{IncludeDir.yaml_cpp}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links
@@ -47,6 +51,9 @@ project "Hazel"
 		"yaml-cpp",
 		"opengl32.lib"
 	}
+
+	filter "files:vender/ImGuizmo/**.cpp"
+	flags { "NoPCH" }
 
 	filter "system:windows"
 		systemversion "latest"
