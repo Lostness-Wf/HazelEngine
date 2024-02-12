@@ -424,11 +424,8 @@ anchor_t SingleDocParser::RegisterAnchor(const std::string& name) {
 anchor_t SingleDocParser::LookupAnchor(const Mark& mark,
                                        const std::string& name) const {
   auto it = m_anchors.find(name);
-  if (it == m_anchors.end()) {
-    std::stringstream ss;
-    ss << ErrorMsg::UNKNOWN_ANCHOR << name;
-    throw ParserException(mark, ss.str());
-  }
+  if (it == m_anchors.end())
+    throw ParserException(mark, ErrorMsg::UNKNOWN_ANCHOR);
 
   return it->second;
 }

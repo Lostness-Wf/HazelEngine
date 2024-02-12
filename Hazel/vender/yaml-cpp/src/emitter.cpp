@@ -533,8 +533,7 @@ void Emitter::BlockMapPrepareNode(EmitterNodeType::value child) {
     if (m_pState->GetMapKeyFormat() == LongKey)
       m_pState->SetLongKey();
     if (child == EmitterNodeType::BlockSeq ||
-        child == EmitterNodeType::BlockMap ||
-        child == EmitterNodeType::Property)
+        child == EmitterNodeType::BlockMap)
       m_pState->SetLongKey();
 
     if (m_pState->CurGroupLongKey())

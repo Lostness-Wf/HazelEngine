@@ -37,7 +37,7 @@ inline const RegEx& Blank() {
   return e;
 }
 inline const RegEx& Break() {
-  static const RegEx e = RegEx('\n') | RegEx("\r\n") | RegEx('\r');
+  static const RegEx e = RegEx('\n') | RegEx("\r\n");
   return e;
 }
 inline const RegEx& BlankOrBreak() {
@@ -115,10 +115,6 @@ inline const RegEx& ValueInFlow() {
 }
 inline const RegEx& ValueInJSONFlow() {
   static const RegEx e = RegEx(':');
-  return e;
-}
-inline const RegEx& Ampersand() {
-  static const RegEx e = RegEx('&');
   return e;
 }
 inline const RegEx Comment() {
