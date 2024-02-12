@@ -2,19 +2,19 @@ Scene: Untitled
 Entities:
   - Entity: 12837192831273
     TagComponent:
-      Tag: RedSquare
+      Tag: PinkSquare123123
     TransformComponent:
-      Translation: [0, 3.70000005, 0]
-      Rotation: [0, 0, 3.47844124]
+      Translation: [0, 0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
-      Color: [0.934362948, 0.0974046215, 0.0974046215, 1]
+      Color: [0.926640928, 0.0286221039, 0.46549651, 1]
   - Entity: 12837192831273
     TagComponent:
       Tag: Camera
     TransformComponent:
-      Translation: [0.600000024, 0.200000003, 0]
-      Rotation: [0, 0, 1.25838232]
+      Translation: [0.5, 0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     CameraComponent:
       Camera:

@@ -1,8 +1,8 @@
-[22:10:16] [info] HAZEL: Creating window Hazel Editor (1600, 900)
-[22:10:16] [info] HAZEL: OpenGL Info:
-[22:10:16] [info] HAZEL:   Vendor: NVIDIA Corporation
-[22:10:16] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
-[22:10:16] [info] HAZEL:   Version: 4.6.0 NVIDIA 536.67
-[22:10:20] [trace] HAZEL: Deserializing scene 'Untitled'
-[22:10:20] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Camera
-[22:10:20] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = PinkSquare
+[22:12:53] [info] HAZEL: Creating window Hazel Editor (1600, 900)
+[22:12:53] [info] HAZEL: OpenGL Info:
+[22:12:53] [info] HAZEL:   Vendor: NVIDIA Corporation
+[22:12:53] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+[22:12:53] [info] HAZEL:   Version: 4.6.0 NVIDIA 536.67
+[22:12:57] [trace] HAZEL: Deserializing scene 'Untitled'
+[22:12:57] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = PinkSquare123123
+[22:12:57] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Camera
