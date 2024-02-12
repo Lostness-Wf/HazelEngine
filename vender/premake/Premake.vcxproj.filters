@@ -19,6 +19,9 @@
     <Filter Include="..\Hazel\vender\imgui">
       <UniqueIdentifier>{619365DD-CDFF-20D8-96F3-B835021F4340}</UniqueIdentifier>
     </Filter>
+    <Filter Include="..\Hazel\vender\yaml-cpp">
+      <UniqueIdentifier>{493DB5A5-3562-0426-5EAD-E9B54A310344}</UniqueIdentifier>
+    </Filter>
     <Filter Include="..\Hazel-Editor">
       <UniqueIdentifier>{5847B032-C4D2-1DF7-CDE3-A0EB39EE79F7}</UniqueIdentifier>
     </Filter>
@@ -41,6 +44,9 @@
     </None>
     <None Include="..\..\Hazel\vender\imgui\premake5.lua">
       <Filter>..\Hazel\vender\imgui</Filter>
+    </None>
+    <None Include="..\..\Hazel\vender\yaml-cpp\premake5.lua">
+      <Filter>..\Hazel\vender\yaml-cpp</Filter>
     </None>
     <None Include="..\..\Sandbox\premake5.lua">
       <Filter>..\Sandbox</Filter>
