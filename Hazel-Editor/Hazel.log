@@ -1,6 +1,10 @@
-[23:09:34] [info] HAZEL: Creating window Hazel Editor (1600, 900)
-[23:09:34] [info] HAZEL: OpenGL Info:
-[23:09:34] [info] HAZEL:   Vendor: NVIDIA Corporation
-[23:09:34] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
-[23:09:34] [info] HAZEL:   Version: 4.6.0 NVIDIA 536.67
-[23:09:34] [error] HAZEL: Assertion failed: Framebuffer is incomplete!
+[00:49:07] [info] HAZEL: Creating window Hazel Editor (1600, 900)
+[00:49:08] [info] HAZEL: OpenGL Info:
+[00:49:08] [info] HAZEL:   Vendor: NVIDIA Corporation
+[00:49:08] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+[00:49:08] [info] HAZEL:   Version: 4.6.0 NVIDIA 536.67
+[00:49:14] [trace] HAZEL: Deserializing scene 'Untitled'
+[00:49:14] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Top
+[00:49:14] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Camera
+[00:49:14] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Right
+[00:49:14] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Left
