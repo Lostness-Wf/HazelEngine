@@ -1,10 +1,25 @@
-[23:10:03] [info] HAZEL: Creating window Hazel Editor (1600, 900)
-[23:10:04] [info] HAZEL: OpenGL Info:
-[23:10:04] [info] HAZEL:   Vendor: NVIDIA Corporation
-[23:10:04] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
-[23:10:04] [info] HAZEL:   Version: 4.6.0 NVIDIA 536.67
-[23:10:08] [trace] HAZEL: Deserializing scene 'Untitled'
-[23:10:08] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Top
-[23:10:08] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Camera
-[23:10:08] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Right
-[23:10:08] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Left
+[00:00:02] [info] HAZEL: Creating window Hazel Editor (1600, 900)
+[00:00:02] [info] HAZEL: OpenGL Info:
+[00:00:02] [info] HAZEL:   Vendor: NVIDIA Corporation
+[00:00:02] [info] HAZEL:   Renderer: NVIDIA GeForce RTX 3060 Laptop GPU/PCIe/SSE2
+[00:00:02] [info] HAZEL:   Version: 4.6.0 NVIDIA 536.67
+[00:00:02] [trace] HAZEL: OpenGLShader::Reflect - GL_VERTEX_SHADER assets/shaders/Texture.glsl
+[00:00:02] [trace] HAZEL:     1 uniform buffers
+[00:00:02] [trace] HAZEL:     0 resources
+[00:00:02] [trace] HAZEL: Uniform buffers:
+[00:00:02] [trace] HAZEL:   _47_49
+[00:00:02] [trace] HAZEL:     Size = 64
+[00:00:02] [trace] HAZEL:     Binding = 0
+[00:00:02] [trace] HAZEL:     Members = 1
+[00:00:02] [trace] HAZEL: OpenGLShader::Reflect - GL_FRAGMENT_SHADER assets/shaders/Texture.glsl
+[00:00:02] [trace] HAZEL:     0 uniform buffers
+[00:00:02] [trace] HAZEL:     1 resources
+[00:00:02] [trace] HAZEL: Uniform buffers:
+[00:00:02] [warning] HAZEL: Shader creation took 62.54141 ms
+[00:00:08] [trace] HAZEL: Deserializing scene 'Untitled'
+[00:00:08] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Top
+[00:00:08] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Camera
+[00:00:08] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Right
+[00:00:08] [trace] HAZEL: Deserialized entity with ID = 12837192831273, name = Left
+[00:00:08] [error] HAZEL: Program/shader state performance warning: Vertex shader in program 2 is being recompiled based on GL state.
+[00:00:08] [error] HAZEL: Program/shader state performance warning: Vertex shader in program 2 is being recompiled based on GL state, and was not found in the disk cache
