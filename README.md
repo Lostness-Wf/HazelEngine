@@ -1,1 +1,1 @@
-# This is a 2D GameEngine
+# A 3D GameEngine but only can render 2D quads now
