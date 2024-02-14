@@ -15,8 +15,8 @@ namespace Hazel {
 		//例如，在这个问题中的函数 OpenFile 就返回了一个可能存在的 std::string 对象，或者一个不存在的值
 		//（即空的 std::optional<std::string>）。这样，调用者可以通过检查返回值是否为空来判断函数是否成功打开了文件，
 		//并且可以避免使用传统的错误码或抛出异常来处理错误。
-		static std::optional<std::string> OpenFile(const char* filter);
-		static std::optional<std::string> SaveFile(const char* filter);
+		static std::string OpenFile(const char* filter);
+		static std::string SaveFile(const char* filter);
 	};
 
 }

@@ -12,7 +12,6 @@ namespace Hazel {
 	{
 	public:
 		OpenGLShader(const std::string& filepath);
-
 		OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc);
 		virtual ~OpenGLShader();
 
@@ -40,12 +39,22 @@ namespace Hazel {
 		void UploadUniformMat3(const std::string& name, const glm::mat3& matrix);
 		void UploadUniformMat4(const std::string& name, const glm::mat4& matrix);
 	private:
-		uint32_t m_RendererID;
-		std::string m_Name;
-	private:
 		std::string ReadFile(const std::string& filepath);
 		std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
-		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);
+
+		void CompileOrGetVulkanBinaries(const std::unordered_map<GLenum, std::string>& shaderSources);
+		void CompileOrGetOpenGLBinaries();
+		void CreateProgram();
+		void Reflect(GLenum stage, const std::vector<uint32_t>& shaderData);
+	private:
+		uint32_t m_RendererID;
+		std::string m_FilePath;
+		std::string m_Name;
+
+		std::unordered_map<GLenum, std::vector<uint32_t>> m_VulkanSPIRV;
+		std::unordered_map<GLenum, std::vector<uint32_t>> m_OpenGLSPIRV;
+
+		std::unordered_map<GLenum, std::string> m_OpenGLSourceCode;
 	};
 
 }
