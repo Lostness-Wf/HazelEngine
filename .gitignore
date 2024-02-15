@@ -5,8 +5,7 @@ bin-int/
 
 # Hazel files
 *.log
-Hazel-Editor/imgui.ini
-Hazel-Editor/Hazel.log
+*.ini
 
 # Visual Studio files and folder
 .vs/
