@@ -17,4 +17,5 @@ bin-int/
 # Directories
 Hazel/vender/VulkanSDK
 Hazel-Editor/assets/cache
+Sandbox/assets/cache
 scripts/__pycache__
