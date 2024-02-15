@@ -432,6 +432,12 @@ namespace Hazel {
 
 	void EditorLayer::OpenScene(const std::filesystem::path& path)
 	{
+		size_t found = path.string().find(".hazel");
+		if (found == std::string::npos)
+		{
+			HZ_WARN("Open scene failed! {0} is not a scene!", path);
+			return;
+		}
 		m_ActiveScene = CreateRef<Scene>();
 		m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
 		m_SceneHierarchyPanel.SetContext(m_ActiveScene);
