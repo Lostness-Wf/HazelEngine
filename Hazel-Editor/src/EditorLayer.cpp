@@ -435,7 +435,7 @@ namespace Hazel {
 		size_t found = path.string().find(".hazel");
 		if (found == std::string::npos)
 		{
-			HZ_WARN("Open scene failed! {0} is not a scene!", path);
+			HZ_WARN("Fail to open a scene! {0} is not a scene file!", path);
 			return;
 		}
 		m_ActiveScene = CreateRef<Scene>();
