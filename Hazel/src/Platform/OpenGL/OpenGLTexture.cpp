@@ -3,8 +3,6 @@
 
 #include <stb_image.h>
 
-#include <glad/glad.h>
-
 namespace Hazel {
 
 	OpenGLTexture2D::OpenGLTexture2D(uint32_t width, uint32_t height)
@@ -37,43 +35,49 @@ namespace Hazel {
 			HZ_PROFILE_SCOPE("stbi_load - OpenGLTexture2D::OpenGLTexture2D(const std::string&)");
 			data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 		}
-		HZ_CORE_ASSERT(data, "Failed to load image!");
-		m_Width = width;
-		m_Height = height;
 
-		/*在 OpenGL 中，内部格式（internal format）和数据格式（data format）是两个不同的概念。
-		内部格式指定了纹理在 GPU 内存中的存储方式，而数据格式指定了上传到 GPU 的图像数据的格式。
-		例如，如果图像数据中每个像素包含红、绿、蓝三个颜色通道，则数据格式可以指定为 GL_RGB。
-		而内部格式可以指定为 GL_RGB8，表示在 GPU 内存中，每个颜色通道占用 8 位。内部格式和数据格式之间的匹配很重要，
-		以确保图像数据能够正确地上传到 GPU 并显示出来。*/
-		GLenum internalFormat = 0, dataFormat = 0;
-		if (channels == 4)
+		if (data)
 		{
-			internalFormat = GL_RGBA8;
-			dataFormat = GL_RGBA;
+			m_IsLoaded = true;
+
+			m_Width = width;
+			m_Height = height;
+
+			//在 OpenGL 中，内部格式（internal format）和数据格式（data format）是两个不同的概念。
+			//内部格式指定了纹理在 GPU 内存中的存储方式，而数据格式指定了上传到 GPU 的图像数据的格式。
+			//例如，如果图像数据中每个像素包含红、绿、蓝三个颜色通道，则数据格式可以指定为 GL_RGB。
+			//而内部格式可以指定为 GL_RGB8，表示在 GPU 内存中，每个颜色通道占用 8 位。内部格式和数据格式之间的匹配很重要，
+			//以确保图像数据能够正确地上传到 GPU 并显示出来。
+			GLenum internalFormat = 0, dataFormat = 0;
+			if (channels == 4)
+			{
+				internalFormat = GL_RGBA8;
+				dataFormat = GL_RGBA;
+			}
+			else if (channels == 3)
+			{
+				internalFormat = GL_RGB8;
+				dataFormat = GL_RGB;
+			}
+
+			m_InternalFormat = internalFormat;
+			m_DataFormat = dataFormat;
+
+			HZ_CORE_ASSERT(internalFormat & dataFormat, "Format not supported!");
+
+			glCreateTextures(GL_TEXTURE_2D, 1, &m_RendererID);
+			glTextureStorage2D(m_RendererID, 1, internalFormat, m_Width, m_Height);
+
+			glTextureParameteri(m_RendererID, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+			glTextureParameteri(m_RendererID, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+			glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_S, GL_REPEAT);
+			glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+			glTextureSubImage2D(m_RendererID, 0, 0, 0, m_Width, m_Height, dataFormat, GL_UNSIGNED_BYTE, data);
+
+			stbi_image_free(data);
 		}
-		else if (channels == 3)
-		{
-			internalFormat = GL_RGB8;
-			dataFormat = GL_RGB;
-		}
-
-		m_InternalFormat = internalFormat;
-		m_DataFormat = dataFormat;
-
-		HZ_CORE_ASSERT(internalFormat & dataFormat, "Format not supported!");
-
-		glCreateTextures(GL_TEXTURE_2D, 1, &m_RendererID);
-		glTextureStorage2D(m_RendererID, 1, internalFormat, m_Width, m_Height);
-
-		glTextureParameteri(m_RendererID, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTextureParameteri(m_RendererID, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-		glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_S, GL_REPEAT);
-		glTextureParameteri(m_RendererID, GL_TEXTURE_WRAP_T, GL_REPEAT);
-
-		glTextureSubImage2D(m_RendererID, 0, 0, 0, m_Width, m_Height, dataFormat, GL_UNSIGNED_BYTE, data);
-		stbi_image_free(data);
 	}
 
 	OpenGLTexture2D::~OpenGLTexture2D()
@@ -94,6 +98,8 @@ namespace Hazel {
 
 	void OpenGLTexture2D::Bind(uint32_t slot) const
 	{
+		HZ_PROFILE_FUNCTION();
+
 		glBindTextureUnit(slot, m_RendererID);
 	}
 }
