@@ -1,6 +1,6 @@
 Scene: Untitled
 Entities:
-  - Entity: 12837192831273
+  - Entity: 18368835175209829814
     TagComponent:
       Tag: Camera
     TransformComponent:
@@ -18,11 +18,11 @@ Entities:
         OrthographicFar: 1
       Primary: true
       FixedAspectRatio: false
-  - Entity: 12837192831273
+  - Entity: 17815368901370706623
     TagComponent:
       Tag: Sprite
     TransformComponent:
-      Translation: [0.0495706201, 0.271503896, 0.0225147791]
+      Translation: [-1.8066113, 0.479285568, 0.0225147791]
       Rotation: [0, 0, -0.235084534]
       Scale: [0.361159712, 0.375572056, 0.848135769]
     SpriteRendererComponent:
@@ -37,7 +37,7 @@ Entities:
       Friction: 0.100000001
       Restitution: 0.819999993
       RestitutionThreshold: 0.5
-  - Entity: 12837192831273
+  - Entity: 16394037219122728859
     TagComponent:
       Tag: Floor
     TransformComponent:
