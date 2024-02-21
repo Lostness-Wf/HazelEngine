@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Hazel/Core/Log.h"
+
 #include <algorithm>
 #include <chrono>
 #include <fstream>
@@ -9,7 +11,6 @@
 #include <mutex>
 #include <sstream>
 
-#include "Hazel/Core/Log.h"
 namespace Hazel {
 
 	using FloatingPointMicroseconds = std::chrono::duration<double, std::micro>;
