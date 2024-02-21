@@ -1,1 +1,1 @@
-# A 3D GameEngine but only can render 2D quads now
+# Hazel2D GameEngine
