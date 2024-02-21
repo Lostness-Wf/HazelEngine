@@ -13,10 +13,6 @@ namespace Hazel {
 		{
 			PushLayer(new EditorLayer());
 		}
-
-		~HazelEditor()
-		{
-		}
 	};
 
 	Application* CreateApplication(ApplicationCommandLineArgs args)
