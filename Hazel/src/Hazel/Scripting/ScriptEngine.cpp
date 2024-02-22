@@ -119,15 +119,22 @@ namespace Hazel {
 		s_Data->CoreAssembly = LoadCSharpAssembly("Resources/Scripts/Hazel-ScriptCore.dll");
 		PrintAssemblyTypes(s_Data->CoreAssembly);
 
+ 		//mono_assembly_get_image 是一个 Mono 运行时库中的函数，用于获取给定程序集的图像
 		MonoImage* assemblyImage = mono_assembly_get_image(s_Data->CoreAssembly);
+ 		//用于从指定的图像中获取一个指定命名空间和类名的类。
+		//在这里，它被用来从之前获取的程序集图像中获取名为"Hazel" 的命名空间下的 "Main" 类。
 		MonoClass* monoClass = mono_class_from_name(assemblyImage, "Hazel", "Main");
 
 		// 1. create an object (and call constructor)
+		//用于在指定的应用程序域（AppDomain）中创建一个指定类型（由 monoClass 表示）的新对象实例。
 		MonoObject* instance = mono_object_new(s_Data->AppDomain, monoClass);
+		//用于初始化一个对象实例。在这里，它被用来对之前创建的对象实例进行初始化。
 		mono_runtime_object_init(instance);
 
 		// 2. call function
+		//用于从指定类中获取指定名称和参数个数的方法。在这里，它被用来获取名为"PrintMessage"且参数个数为 0 的方法。
 		MonoMethod* printMessageFunc = mono_class_get_method_from_name(monoClass, "PrintMessage", 0);
+		//在这里，它被用来调用之前获取到的 printMessageFunc 方法，并传递给该方法的实例对象为 instance，参数和泛型参数均为空。
 		mono_runtime_invoke(printMessageFunc, instance, nullptr, nullptr);
 
 		// 3. call function with param
@@ -151,7 +158,7 @@ namespace Hazel {
 		MonoMethod* printCustomMessageFunc = mono_class_get_method_from_name(monoClass, "PrintCustomMessage", 1);
 		void* stringParam = monoString;
 		mono_runtime_invoke(printCustomMessageFunc, instance, &stringParam, nullptr);
-
+		
 		// HZ_CORE_ASSERT(false);
 	}
 
