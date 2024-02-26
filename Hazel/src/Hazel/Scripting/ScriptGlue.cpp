@@ -101,6 +101,9 @@ namespace Hazel {
 		return Input::IsKeyPressed(keycode);
 	}
 
+
+	// (表达式, ...) 是一个 C++17 中引入的折叠表达式（fold expression）的使用示例。它实现了对传入的模板参数包中的每个组件类型执行相同的操作。
+	// 这段函数中会对每一个传入的Component执行表达式里面的逻辑，这里表达式是一个lambda表达式。
 	template<typename... Component>
 	static void RegisterComponent()
 	{
