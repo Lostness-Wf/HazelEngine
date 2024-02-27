@@ -306,7 +306,7 @@ Entities:
       RestitutionThreshold: 0.5
   - Entity: 9341708958549857400
     TagComponent:
-      Tag: Sprite
+      Tag: Player
     TransformComponent:
       Translation: [-0.353333682, -1.0719738, 0]
       Rotation: [0, 0, -0.235084534]
@@ -315,7 +315,7 @@ Entities:
       ClassName: Sandbox.Player
     SpriteRendererComponent:
       Color: [1, 1, 1, 1]
-      TexturePath: assets\textures\ChernoLogo.png
+      TexturePath: assets\textures\qq1.png
       TilingFactor: 1
     Rigidbody2DComponent:
       BodyType: Dynamic
