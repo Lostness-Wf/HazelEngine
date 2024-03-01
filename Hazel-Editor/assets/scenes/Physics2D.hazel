@@ -167,7 +167,7 @@ Entities:
     TagComponent:
       Tag: Ciecle
     TransformComponent:
-      Translation: [0.374851167, -0.0971834362, 0]
+      Translation: [0.444268227, 0.0138832927, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     CircleRendererComponent:
@@ -209,7 +209,7 @@ Entities:
     TagComponent:
       Tag: Ciecle
     TransformComponent:
-      Translation: [-0.276210785, 1.53451657, 0]
+      Translation: [-0.678828061, 1.81218362, 0]
       Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     CircleRendererComponent:
@@ -320,7 +320,7 @@ Entities:
       ScriptFields:
         - Name: Speed
           Type: Float
-          Data: 10
+          Data: 15
     SpriteRendererComponent:
       Color: [1, 1, 1, 1]
       TexturePath: assets\textures\qq1.png
