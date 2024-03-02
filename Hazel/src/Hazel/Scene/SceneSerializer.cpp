@@ -291,7 +291,14 @@ namespace Hazel {
 			auto& spriteRendererComponent = entity.GetComponent<SpriteRendererComponent>();
 			out << YAML::Key << "Color" << YAML::Value << spriteRendererComponent.Color;
 			if (spriteRendererComponent.Texture)
-				out << YAML::Key << "TexturePath" << YAML::Value << spriteRendererComponent.Texture->GetPath();
+			{
+				std::string projectPath = Project::GetAssetDirectory().string();
+				std::string fullPath = spriteRendererComponent.Texture->GetPath();
+				size_t pos = fullPath.find(projectPath);
+				if (pos != std::string::npos)
+					fullPath.erase(pos, projectPath.length() + 1);
+				out << YAML::Key << "TexturePath" << YAML::Value << fullPath;
+			}
 
 			out << YAML::Key << "TilingFactor" << YAML::Value << spriteRendererComponent.TilingFactor;
 

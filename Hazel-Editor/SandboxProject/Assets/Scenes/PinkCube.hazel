@@ -1,26 +1,25 @@
 Scene: Untitled
 Entities:
-  - Entity: 9638825893464370020
+  - Entity: 11853783073216453853
     TagComponent:
-      Tag: Left
+      Tag: Empty Entity
     TransformComponent:
-      Translation: [-0.354999989, 0, 0.349999994]
-      Rotation: [0, -0.785398185, 0]
+      Translation: [1.60000002, 0, 0]
+      Rotation: [0, 0, 0]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
-      Color: [1, 0, 0.949807167, 1]
+      Color: [1, 1, 1, 1]
+      TexturePath: Textures\qq1.png
       TilingFactor: 1
-  - Entity: 3680138270150723055
+  - Entity: 7668522101017028449
     TagComponent:
-      Tag: Right
+      Tag: Top
     TransformComponent:
-      Translation: [0.351999998, 0, 0.349999994]
-      Rotation: [0, 0.785398245, 0]
+      Translation: [0, 0.5, 0]
+      Rotation: [1.57079637, 0.785398185, 0]
       Scale: [1, 1, 1]
-    ScriptComponent:
-      ClassName: Sandbox.Player
     SpriteRendererComponent:
-      Color: [0.54842025, 0, 0.586872578, 1]
+      Color: [0.876447856, 0, 0.834712803, 1]
       TilingFactor: 1
   - Entity: 7275295877762443784
     TagComponent:
@@ -40,23 +39,27 @@ Entities:
         OrthographicFar: 1
       Primary: true
       FixedAspectRatio: false
-  - Entity: 7668522101017028449
+  - Entity: 3680138270150723055
     TagComponent:
-      Tag: Top
+      Tag: Right
     TransformComponent:
-      Translation: [0, 0.5, 0]
-      Rotation: [1.57079637, 0.785398185, 0]
+      Translation: [0.351999998, 0, 0.349999994]
+      Rotation: [0, 0.785398245, 0]
       Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Player
+      ScriptFields:
+        []
     SpriteRendererComponent:
-      Color: [0.876447856, 0, 0.834712803, 1]
+      Color: [0.54842025, 0, 0.586872578, 1]
       TilingFactor: 1
-  - Entity: 11853783073216453853
+  - Entity: 9638825893464370020
     TagComponent:
-      Tag: Empty Entity
+      Tag: Left
     TransformComponent:
-      Translation: [1.60000002, 0, 0]
-      Rotation: [0, 0, 0]
+      Translation: [-0.354999989, 0, 0.349999994]
+      Rotation: [0, -0.785398185, 0]
       Scale: [1, 1, 1]
     SpriteRendererComponent:
-      Color: [1, 1, 1, 1]
+      Color: [1, 0, 0.949807167, 1]
       TilingFactor: 1
