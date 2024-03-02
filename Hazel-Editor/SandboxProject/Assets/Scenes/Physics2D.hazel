@@ -323,7 +323,7 @@ Entities:
           Data: 15
     SpriteRendererComponent:
       Color: [1, 1, 1, 1]
-      TexturePath: assets\textures\qq1.png
+      TexturePath: SandboxProject\Assets\Textures\exclamation.png
       TilingFactor: 1
     Rigidbody2DComponent:
       BodyType: Dynamic
