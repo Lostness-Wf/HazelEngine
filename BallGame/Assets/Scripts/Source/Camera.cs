@@ -15,7 +15,14 @@ namespace Sandbox
 
         public float DistanceFromPlayer = 5.0f;
 
+        public float distanceFromPlayer = 0.0f;
+
         private Entity m_Player;
+
+        private float Lerp(float a, float b, float t)
+        {
+            return a * (1.0f - t) + (b * t);
+        }
 
         void OnCreate()
         {
@@ -24,27 +31,14 @@ namespace Sandbox
 
         void OnUpdate(float ts)
         {
-            if (m_Player != null)
-                Translation = new Vector3(m_Player.Translation.XY, DistanceFromPlayer);
+            if (m_Player == null)
+                return;
 
-            float speed = 1.0f;
-            Vector3 velocity = Vector3.Zero;
+            Vector2 playerVelocity = m_Player.GetComponent<Rigidbody2DComponent>().LinearVelocity;
+            float target = DistanceFromPlayer + playerVelocity.Length();
 
-            if (Input.IsKeyDown(KeyCode.Up))
-                velocity.Y = 1.0f;
-            else if (Input.IsKeyDown(KeyCode.Down))
-                velocity.Y = -1.0f;
-
-            if (Input.IsKeyDown(KeyCode.Left))
-                velocity.X = -1.0f;
-            else if (Input.IsKeyDown(KeyCode.Right))
-                velocity.X = 1.0f;
-
-            velocity *= speed;
-
-            Vector3 translation = Translation;
-            translation += velocity * ts;
-            Translation = translation;
+            distanceFromPlayer = Lerp(distanceFromPlayer, target, 4.5f * ts);
+            Translation = new Vector3(m_Player.Translation.XY, distanceFromPlayer);
         }
 
     }
