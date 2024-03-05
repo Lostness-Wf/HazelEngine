@@ -480,7 +480,7 @@ namespace Hazel {
 
 								ScriptFieldInstance& fieldInstance = entityFields[name];
 
-								// TODO(Yan): turn this assert into Hazelnut log warning
+								// TODO: turn this assert into Hazel-Editor log warning
 								HZ_CORE_ASSERT(fields.find(name) != fields.end());
 
 								if (fields.find(name) == fields.end())

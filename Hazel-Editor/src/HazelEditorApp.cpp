@@ -18,7 +18,7 @@ namespace Hazel {
 	Application* CreateApplication(ApplicationCommandLineArgs args)
 	{
 		ApplicationSpecification spec;
-		spec.Name = "Hazelnut";
+		spec.Name = "Hazel-Editor";
 		spec.CommandLineArgs = args;
 
 		return new HazelEditor(spec);

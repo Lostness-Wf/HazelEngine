@@ -23,7 +23,7 @@ Hazel::Application* Hazel::CreateApplication(Hazel::ApplicationCommandLineArgs a
 {
 	ApplicationSpecification spec;
 	spec.Name = "Sandbox";
-	spec.WorkingDirectory = "../Hazelnut";
+	spec.WorkingDirectory = "../Hazel-Editor";
 	spec.CommandLineArgs = args;
 
 	return new Sandbox(spec);
