@@ -448,6 +448,13 @@ namespace Hazel {
 			}
 		}
 
+		// Draw text
+		Renderer2D::DrawString(R"(weifuchunyang
+								  weifuchunyang
+								  weifuchunyang
+								  weifuchunyang
+												)", Font::GetDefault(), glm::mat4(1.0f), glm::vec4(1.0f));
+
 		Renderer2D::EndScene();
 	}
 

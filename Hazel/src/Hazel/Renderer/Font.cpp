@@ -6,18 +6,9 @@
 #include "FontGeometry.h"
 #include "GlyphGeometry.h"
 
+#include "MSDFData.h"
+
 namespace Hazel {
-
-	struct MSDFData
-	{
-		//表示字形的几何信息，通常用于描述单个字符或字形的特征和属性。
-		//包括字形的位置、尺寸、纹理坐标等相关信息，用于在字形图集中定位和渲染单个字符或字形。
-		std::vector<msdf_atlas::GlyphGeometry> Glyphs;
-
-		//表示字体的几何信息，用于描述整个字体的特征和属性。
-		//包括字体的大小、行高、基准线位置等整体信息，用于在生成字形图集时提供字体的整体信息，以便在渲染时正确地处理字体的各种属性和特征。
-		msdf_atlas::FontGeometry FontGeometry;
-	};
 
 	template<typename T, typename S, int N, msdf_atlas::GeneratorFunction<S, N> GenFunc>
 	static Ref<Texture2D> CreateAndCacheAtlas(const std::string& fontName, float fontSize, const std::vector<msdf_atlas::GlyphGeometry>& glyphs,
@@ -42,6 +33,9 @@ namespace Hazel {
 
 		Ref<Texture2D> texture = Texture2D::Create(spec);
 		texture->SetData((void*)bitmap.pixels, bitmap.width * bitmap.height * 3);
+
+		msdfgen::savePng(bitmap, "ChineseFonts.png");
+
 		return texture;
 	}
 
@@ -70,12 +64,12 @@ namespace Hazel {
 		static const CharsetRange charsetRanges[] =
 		{
 			{ 0x0020, 0x00FF }, // Basic Latin + Latin Supplement
-			//{ 0x2000, 0x206F }, // General Punctuation
-			//{ 0x3000, 0x30FF }, // CJK Symbols and Punctuations, Hiragana, Katakana
-			//{ 0x31F0, 0x31FF }, // Katakana Phonetic Extensions
-			//{ 0xFF00, 0xFFEF }, // Half-width characters
-			//{ 0xFFFD, 0xFFFD }, // Invalid
-			//{ 0x4e00, 0x9FAF } // CJK Ideograms
+			{ 0x2000, 0x206F }, // General Punctuation
+			{ 0x3000, 0x30FF }, // CJK Symbols and Punctuations, Hiragana, Katakana
+			{ 0x31F0, 0x31FF }, // Katakana Phonetic Extensions
+			{ 0xFF00, 0xFFEF }, // Half-width characters
+			{ 0xFFFD, 0xFFFD }, // Invalid
+			{ 0x4e00, 0x9FAF } // CJK Ideograms
 		};
 
 		msdf_atlas::Charset charset;
@@ -106,6 +100,33 @@ namespace Hazel {
 		atlasPacker.getDimensions(width, height);
 		emSize = atlasPacker.getScale();
 
+#define DEFAULT_ANGLE_THRESHOLD 3.0
+#define LCG_MULTIPLIER 6364136223846793005ull
+#define LCG_INCREMENT 1442695040888963407ull
+#define THREAD_COUNT 8
+		// if MSDF || MTSDF
+		// Copy from msdf-atlas-gen/main.cpp
+		
+		uint64_t coloringSeed = 0;
+		bool expensiveColoring = false;
+		if (expensiveColoring)
+		{
+			msdf_atlas::Workload([&glyphs = m_Data->Glyphs, &coloringSeed](int i, int threadNo) -> bool {
+				unsigned long long glyphSeed = (LCG_MULTIPLIER * (coloringSeed ^ i) + LCG_INCREMENT) * !!coloringSeed;
+				glyphs[i].edgeColoring(msdfgen::edgeColoringInkTrap, DEFAULT_ANGLE_THRESHOLD, glyphSeed);
+				return true;
+				}, m_Data->Glyphs.size()).finish(THREAD_COUNT);
+		}
+		else {
+			unsigned long long glyphSeed = coloringSeed;
+			for (msdf_atlas::GlyphGeometry& glyph : m_Data->Glyphs)
+			{
+				glyphSeed *= LCG_MULTIPLIER;
+				glyph.edgeColoring(msdfgen::edgeColoringInkTrap, DEFAULT_ANGLE_THRESHOLD, glyphSeed);
+			}
+		}
+
+
 		m_AtlasTexture = CreateAndCacheAtlas<uint8_t, float, 3, msdf_atlas::msdfGenerator>("Test", (float)emSize, m_Data->Glyphs, m_Data->FontGeometry, width, height);
 
 
@@ -131,6 +152,16 @@ namespace Hazel {
 	Font::~Font()
 	{
 		delete m_Data;
+	}
+
+	Ref<Font> Font::GetDefault()
+	{
+		static Ref<Font> DefaultFont;
+		if (!DefaultFont)
+			//DefaultFont = CreateRef<Font>("assets/fonts/opensans/OpenSans-Regular.ttf");
+			DefaultFont = CreateRef<Font>("assets/fonts/Chinese.TTF");
+
+		return DefaultFont;
 	}
 
 }
