@@ -34,7 +34,7 @@ namespace Hazel {
 		Ref<Texture2D> texture = Texture2D::Create(spec);
 		texture->SetData((void*)bitmap.pixels, bitmap.width * bitmap.height * 3);
 
-		msdfgen::savePng(bitmap, "ChineseFonts.png");
+		//msdfgen::savePng(bitmap, "ChineseFonts.png");
 
 		return texture;
 	}
@@ -126,8 +126,8 @@ namespace Hazel {
 			}
 		}
 
-
-		m_AtlasTexture = CreateAndCacheAtlas<uint8_t, float, 3, msdf_atlas::msdfGenerator>("Test", (float)emSize, m_Data->Glyphs, m_Data->FontGeometry, width, height);
+		m_AtlasTexture = Texture2D::Create("ChineseFonts.png");
+		//m_AtlasTexture = CreateAndCacheAtlas<uint8_t, float, 3, msdf_atlas::msdfGenerator>("Test", (float)emSize, m_Data->Glyphs, m_Data->FontGeometry, width, height);
 
 
 #if 0

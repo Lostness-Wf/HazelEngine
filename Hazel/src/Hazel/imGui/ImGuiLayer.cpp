@@ -41,6 +41,9 @@ namespace Hazel {
 		io.Fonts->AddFontFromFileTTF("assets/fonts/opensans/OpenSans-Bold.ttf", fontSize);
 		io.FontDefault = io.Fonts->AddFontFromFileTTF("assets/fonts/opensans/OpenSans-Regular.ttf", fontSize);
 
+		//io.Fonts->AddFontFromFileTTF("assets/fonts/Chinese.TTF", fontSize);
+		//io.FontDefault = io.Fonts->AddFontFromFileTTF("assets/fonts/Chinese.TTF", fontSize);
+
 		// Setup Dear ImGui style
 		ImGui::StyleColorsDark();
 		//ImGui::StyleColorsClassic();
