@@ -126,8 +126,8 @@ namespace Hazel {
 			}
 		}
 
-		m_AtlasTexture = Texture2D::Create("ChineseFonts.png");
-		//m_AtlasTexture = CreateAndCacheAtlas<uint8_t, float, 3, msdf_atlas::msdfGenerator>("Test", (float)emSize, m_Data->Glyphs, m_Data->FontGeometry, width, height);
+		//m_AtlasTexture = Texture2D::Create("ChineseFonts.png");
+		m_AtlasTexture = CreateAndCacheAtlas<uint8_t, float, 3, msdf_atlas::msdfGenerator>("Test", (float)emSize, m_Data->Glyphs, m_Data->FontGeometry, width, height);
 
 
 #if 0
@@ -158,8 +158,8 @@ namespace Hazel {
 	{
 		static Ref<Font> DefaultFont;
 		if (!DefaultFont)
-			//DefaultFont = CreateRef<Font>("assets/fonts/opensans/OpenSans-Regular.ttf");
-			DefaultFont = CreateRef<Font>("assets/fonts/Chinese.TTF");
+			DefaultFont = CreateRef<Font>("assets/fonts/opensans/OpenSans-Regular.ttf");
+			//DefaultFont = CreateRef<Font>("assets/fonts/Chinese.TTF");
 
 		return DefaultFont;
 	}
