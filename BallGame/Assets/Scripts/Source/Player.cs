@@ -13,6 +13,7 @@ namespace Sandbox
     {
         private TransformComponent m_Transform;
         private Rigidbody2DComponent m_Rigidbody;
+        private TextComponent m_TextComp;
 
         public float Speed;
         public float Time = 0.0f;
@@ -23,6 +24,9 @@ namespace Sandbox
 
             m_Transform = GetComponent<TransformComponent>();
             m_Rigidbody = GetComponent<Rigidbody2DComponent>();
+            m_TextComp = GetComponent<TextComponent>();
+            m_TextComp.Text = "1236789";
+            Console.WriteLine($"TEXT: {(string)m_TextComp.Text}");
         }
 
         void OnUpdate(float ts)

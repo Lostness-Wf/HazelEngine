@@ -158,7 +158,8 @@ namespace Hazel {
 	{
 		static Ref<Font> DefaultFont;
 		if (!DefaultFont)
-			DefaultFont = CreateRef<Font>("assets/fonts/opensans/OpenSans-Regular.ttf");
+			//DefaultFont = CreateRef<Font>("assets/fonts/opensans/OpenSans-Regular.ttf");
+			DefaultFont = CreateRef<Font>("assets/fonts/opensans/OpenSans-Bold.ttf");
 			//DefaultFont = CreateRef<Font>("assets/fonts/Chinese.TTF");
 
 		return DefaultFont;

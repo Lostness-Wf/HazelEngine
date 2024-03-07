@@ -128,6 +128,11 @@ Entities:
       Friction: 0.5
       Restitution: 0
       RestitutionThreshold: 0.5
+    TextComponent:
+      TextString: 213
+      Color: [1, 1, 1, 1]
+      Kerning: 0
+      LineSpacing: 0
   - Entity: 8970503362941342094
     TagComponent:
       Tag: Sprite
@@ -254,7 +259,7 @@ Entities:
       RestitutionThreshold: 0.5
   - Entity: 14706662225815224279
     TagComponent:
-      Tag: Ciecle
+      Tag: Text
     TransformComponent:
       Translation: [0.444268227, 0.0138832927, 0]
       Rotation: [0, 0, 0]
@@ -274,7 +279,7 @@ Entities:
       Restitution: 0
       RestitutionThreshold: 0.5
     TextComponent:
-      TextString: "qwewueroqib\n1234\n!!#@##&*^^\nqwer"
+      TextString: qwe
       Color: [1, 1, 1, 1]
       Kerning: 0
       LineSpacing: 0

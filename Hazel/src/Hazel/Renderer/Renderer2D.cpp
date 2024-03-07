@@ -594,7 +594,6 @@ namespace Hazel {
 
 			if (character == '\t')
 			{
-				// NOTE(Yan): is this right?
 				x += 4.0f * (fsScale * spaceGlyphAdvance + textParams.Kerning);
 				continue;
 			}
