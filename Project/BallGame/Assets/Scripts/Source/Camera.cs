@@ -36,11 +36,6 @@ namespace Sandbox
             if (m_Player == null)
                 return;
 
-            if (Time >= 3)
-            {
-                DestroyEntity(ID);
-            }
-
             Vector2 playerVelocity = m_Player.GetComponent<Rigidbody2DComponent>().LinearVelocity;
             float target = DistanceFromPlayer + playerVelocity.Length();
 

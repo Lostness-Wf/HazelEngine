@@ -18,6 +18,10 @@ namespace Sandbox
         public float Speed;
         public float Time = 0.0f;
 
+        bool clickLeft = false;
+
+        Vector2 clickPosition = new Vector2(0);
+        Vector2 releasePosition = new Vector2(0);
         void OnCreate()
         {
             Console.WriteLine($"Player.OnCreate - {ID}");
@@ -34,7 +38,21 @@ namespace Sandbox
             Time += ts;
             //Console.WriteLine($"Player.OnUpdate: {ts}");
 
+            if (Input.IsMouseDown(MouseCode.ButtonLeft) && !clickLeft)
+            {
+                clickLeft = true;
+                clickPosition = Input.GetMousePosition();
+            }
 
+            if (!Input.IsMouseDown(MouseCode.ButtonLeft) && clickLeft)
+            {
+                releasePosition = Input.GetMousePosition();
+                Vector2 delta = clickPosition - releasePosition;
+                delta = new Vector2(delta.X, -delta.Y);
+                Console.WriteLine($"Delta: {delta.X} {delta.Y}");
+                m_Rigidbody.ApplyLinearImpulse(delta * 0.2f, true);
+                clickLeft = false;
+            }
 
             float speed = Speed;
             Vector3 velocity = Vector3.Zero;
@@ -61,10 +79,6 @@ namespace Sandbox
             }
 
             velocity *= speed * ts;
-            if (Time >= 5)
-            {
-                DestroyEntity(cameraEntity.ID);
-            }
             //Dynamic Entities
             m_Rigidbody.ApplyLinearImpulse(velocity.XY, true);
 

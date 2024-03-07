@@ -1,0 +1,240 @@
+Scene: Untitled
+Entities:
+  - Entity: 3918231859442934917
+    TagComponent:
+      Tag: Text
+    TransformComponent:
+      Translation: [-1.77655017, -0.472601831, 0.374085486]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Text
+      ScriptFields:
+        []
+    TextComponent:
+      TextString: ""
+      Color: [1, 1, 1, 1]
+      Kerning: 0
+      LineSpacing: 0
+  - Entity: 4380599330157737955
+    TagComponent:
+      Tag: Enemy
+    TransformComponent:
+      Translation: [3.2481246, -1.73364615, -9.53674316e-07]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Enemy
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: Textures\Pig.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [0, 0]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 9685056424744085144
+    TagComponent:
+      Tag: Wall
+    TransformComponent:
+      Translation: [5.47270393, -0.444887638, -1.45519152e-11]
+      Rotation: [0, 0, 0]
+      Scale: [1, 3.70000005, 1]
+    SpriteRendererComponent:
+      Color: [0.949019611, 0.611764729, 0.0470588244, 0.639215708]
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 8852674871081471673
+    TagComponent:
+      Tag: Wall
+    TransformComponent:
+      Translation: [1.04293168, -0.379294693, -1.45281981e-11]
+      Rotation: [0, 0, 0]
+      Scale: [1, 3.70000005, 1]
+    SpriteRendererComponent:
+      Color: [0.949019611, 0.611764729, 0.0470588244, 0.639215708]
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 8011290879503659939
+    TagComponent:
+      Tag: Player
+    TransformComponent:
+      Translation: [-3.88243747, 0.123042271, -9.53965355e-07]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Player
+      ScriptFields:
+        - Name: m_Speed
+          Type: Float
+          Data: 10
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: Textures\Bird.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [0, 0]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 1593433175337148899
+    TagComponent:
+      Tag: Enemy
+    TransformComponent:
+      Translation: [4.34676647, -1.75559664, -9.53674316e-07]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Enemy
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: Textures\Pig.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [0, 0]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 7332631262497621368
+    TagComponent:
+      Tag: Enemy
+    TransformComponent:
+      Translation: [2.72150946, -0.890262544, -9.53208655e-07]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Enemy
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: Textures\Pig.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [0, 0]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 1155872950625506600
+    TagComponent:
+      Tag: Enemy
+    TransformComponent:
+      Translation: [2.19233561, -1.7749747, -9.53907033e-07]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Enemy
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: Textures\Pig.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [0, 0]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 18368835175209829814
+    TagComponent:
+      Tag: Camera
+    TransformComponent:
+      Translation: [0, 0, 10]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 0
+        PerspectiveFOV: 0.785398185
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 3
+        OrthographicNear: -1
+        OrthographicFar: 21
+      Primary: true
+      FixedAspectRatio: false
+    ScriptComponent:
+      ClassName: Sandbox.Camera
+  - Entity: 5783611483939930035
+    TagComponent:
+      Tag: Enemy
+    TransformComponent:
+      Translation: [3.84161282, -0.806394339, -9.53674316e-07]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    ScriptComponent:
+      ClassName: Sandbox.Enemy
+    SpriteRendererComponent:
+      Color: [1, 1, 1, 1]
+      TexturePath: Textures\Pig.png
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Dynamic
+      FixedRotation: false
+    CircleCollider2DComponent:
+      Offset: [0, 0]
+      Radius: 0.5
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
+  - Entity: 7411868137725344661
+    TagComponent:
+      Tag: Floor
+    TransformComponent:
+      Translation: [-0.795689642, -2.79649401, 0]
+      Rotation: [0, 0, 0]
+      Scale: [87.1229172, 1, 1]
+    SpriteRendererComponent:
+      Color: [1, 0.532818496, 0, 1]
+      TilingFactor: 1
+    Rigidbody2DComponent:
+      BodyType: Static
+      FixedRotation: false
+    BoxCollider2DComponent:
+      Offset: [0, 0]
+      Size: [0.5, 0.5]
+      Density: 1
+      Friction: 0.5
+      Restitution: 0
+      RestitutionThreshold: 0.5
