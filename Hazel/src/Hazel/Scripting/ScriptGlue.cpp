@@ -84,12 +84,21 @@ namespace Hazel {
 		return entity.GetUUID();
 	}
 
+	static void Entity_DestroyEntity(UUID entityID)
+	{
+		Scene* scene = ScriptEngine::GetSceneContext();
+		HZ_CORE_ASSERT(scene);
+		Entity entity = scene->GetEntityByUUID(entityID);
+
+		scene->DestroyEntity(entity);
+	}
+
 	static void TransformComponent_GetTranslation(UUID entityID, glm::vec3* outTranslation)
 	{
 		Scene* scene = ScriptEngine::GetSceneContext();
 		HZ_CORE_ASSERT(scene);
 		Entity entity = scene->GetEntityByUUID(entityID);
-		HZ_CORE_ASSERT(entity);
+		if (!entity) return;
 
 		*outTranslation = entity.GetComponent<TransformComponent>().Translation;
 	}
@@ -99,7 +108,7 @@ namespace Hazel {
 		Scene* scene = ScriptEngine::GetSceneContext();
 		HZ_CORE_ASSERT(scene);
 		Entity entity = scene->GetEntityByUUID(entityID);
-		HZ_CORE_ASSERT(entity);
+		if (!entity) return;
 
 		entity.GetComponent<TransformComponent>().Translation = *translation;
 	}
@@ -311,6 +320,7 @@ namespace Hazel {
 
 		HZ_ADD_INTERNAL_CALL(Entity_HasComponent);
 		HZ_ADD_INTERNAL_CALL(Entity_FindEntityByName);
+		HZ_ADD_INTERNAL_CALL(Entity_DestroyEntity);
 
 		HZ_ADD_INTERNAL_CALL(TransformComponent_GetTranslation);
 		HZ_ADD_INTERNAL_CALL(TransformComponent_SetTranslation);

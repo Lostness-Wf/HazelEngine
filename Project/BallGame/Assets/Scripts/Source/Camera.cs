@@ -14,6 +14,7 @@ namespace Sandbox
         public Entity OtherEntity;
 
         public float DistanceFromPlayer = 5.0f;
+        public float Time = 0.0f;
 
         public float distanceFromPlayer = 0.0f;
 
@@ -31,8 +32,14 @@ namespace Sandbox
 
         void OnUpdate(float ts)
         {
+            Time += ts;
             if (m_Player == null)
                 return;
+
+            if (Time >= 3)
+            {
+                DestroyEntity(ID);
+            }
 
             Vector2 playerVelocity = m_Player.GetComponent<Rigidbody2DComponent>().LinearVelocity;
             float target = DistanceFromPlayer + playerVelocity.Length();

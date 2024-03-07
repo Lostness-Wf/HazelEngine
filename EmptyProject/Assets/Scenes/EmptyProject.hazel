@@ -1,0 +1,24 @@
+Scene: Untitled
+Entities:
+  - Entity: 18368835175209829814
+    TagComponent:
+      Tag: Camera
+    TransformComponent:
+      Translation: [1.51820683, -6.83813334, 20]
+      Rotation: [0, 0, 0]
+      Scale: [1, 1, 1]
+    CameraComponent:
+      Camera:
+        ProjectionType: 0
+        PerspectiveFOV: 0.785398185
+        PerspectiveNear: 0.00999999978
+        PerspectiveFar: 1000
+        OrthographicSize: 3
+        OrthographicNear: -1
+        OrthographicFar: 21
+      Primary: true
+      FixedAspectRatio: false
+    ScriptComponent:
+      ClassName: Sandbox.Camera
+      ScriptFields:
+        []

@@ -1,0 +1,5 @@
+Project:
+  Name: Sandbox
+  StartScene: "Scenes/EmptyProject.hazel"
+  AssetDirectory: "Assets"
+  ScriptModulePath: "Scripts/Binaries/EmptyProject.dll"

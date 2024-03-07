@@ -59,7 +59,10 @@ namespace Sandbox
             }
 
             velocity *= speed * ts;
-
+            if (Time >= 5)
+            {
+                DestroyEntity(cameraEntity.ID);
+            }
             //Dynamic Entities
             m_Rigidbody.ApplyLinearImpulse(velocity.XY, true);
 

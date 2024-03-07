@@ -50,6 +50,11 @@ namespace Hazel
             return new Entity(entityID);
         }
 
+        public void DestroyEntity(ulong entityID)
+        {
+            InternalCalls.Entity_DestroyEntity(entityID);
+        }
+
         public T Cast<T>() where T : Entity, new()
         {
             object instance = InternalCalls.GetScriptInstance(ID);
