@@ -34,6 +34,11 @@ namespace Sandbox
             Time += ts;
             //Console.WriteLine($"Player.OnUpdate: {ts}");
 
+            Vector2 position = Input.GetMousePosition();
+            bool click = Input.IsMouseDown(MouseCode.ButtonLeft);
+            Console.WriteLine($"IsLeftDown: {click}");
+            //Console.WriteLine($"MousePosition: {position.X} {position.Y}");
+
             float speed = Speed;
             Vector3 velocity = Vector3.Zero;
 

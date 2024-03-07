@@ -275,6 +275,15 @@ namespace Hazel {
 		return Input::IsKeyPressed(keycode);
 	}
 
+	static bool Input_IsMouseDown(MouseCode mousecode)
+	{
+		return Input::IsMouseButtonPressed(mousecode);
+	}
+
+	static void Input_GetMousePosition(glm::vec2* mouseposition)
+	{
+		*mouseposition = Input::GetMousePosition();
+	}
 
 	// (表达式, ...) 是一个 C++17 中引入的折叠表达式（fold expression）的使用示例。它实现了对传入的模板参数包中的每个组件类型执行相同的操作。
 	// 这段函数中会对每一个传入的Component执行表达式里面的逻辑，这里表达式是一个lambda表达式。
@@ -341,6 +350,8 @@ namespace Hazel {
 		HZ_ADD_INTERNAL_CALL(TextComponent_SetLineSpacing);
 
 		HZ_ADD_INTERNAL_CALL(Input_IsKeyDown);
+		HZ_ADD_INTERNAL_CALL(Input_IsMouseDown);
+		HZ_ADD_INTERNAL_CALL(Input_GetMousePosition);
 	}
 
 }
